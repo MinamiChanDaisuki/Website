@@ -1,0 +1,1431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Xecret Hub</title>
+
+  <meta property="og:title" content="Xecret Hub" />
+  <meta property="og:description" content="Xecret Hub is a premium script that has been meticulously developed for players who want a higher level of experience, not just the basics, but a different experience. Supports over 20 popular games with daily updates to ensure you never miss any new updates." />
+  <meta property="og:url" content="https://xecrethub.com" />
+  <link rel="icon" type="image/png" href="https://i.ibb.co/rSVZy9p/Xecret-logo-3.png" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+   body {
+      background: #0e0e0e;
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      padding: 60px 20px;
+      max-width: 960px;
+      margin: auto;
+    }
+    h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    p.subtitle {
+      text-align: center;
+      color: #aaa;
+      margin-bottom: 30px;
+    }
+    .tag-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+    .tag-bar button {
+      background: #1f1f1f;
+      color: #fff;
+      border: 1px solid #333;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .tag-bar button:hover {
+      background: #333;
+    }
+    .notice {
+      background: rgba(255, 0, 0, 0.1);
+      border-left: 4px solid red;
+      padding: 15px 20px;
+      margin-bottom: 30px;
+      color: #ff6f6f;
+      border-radius: 8px;
+    }
+  
+    .section h2 {
+      margin: 0 0 10px;
+      font-size: 1.4rem;
+      color: #ffffff;
+    }
+    .section .item {
+      padding: 10px 0;
+
+    }
+    .section .item:last-child {
+      border-bottom: none;
+    }
+    .item-title {
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+   
+    .acceptance h2 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+    .acceptance p {
+      color: #bbb;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      color: #666;
+      font-size: 0.9rem;
+    }
+    a {
+      color: #ff9100;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .plans {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 1100px;
+      width: 100%;
+      gap: 20px; 
+    }
+    .plan {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 30px 25px;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease;
+  user-select: none;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+    .plan:hover {
+      transform: scale(1.05);
+    }
+    .plan h2 {
+      margin: 0 0 20px;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+    .payment-methods {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-bottom: 15px;
+      user-select: none;
+    }
+    label.payment-option {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.01)
+  );
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 15px 20px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #eee;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+  gap: 15px;
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.05), 0 0 10px rgba(0,0,0,0.25);
+}
+
+    label.payment-option:hover {
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.15), 0 0 20px rgba(0, 0, 0, 0.3);
+  color: #fff;
+}
+.section, .acceptance {
+  background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 24px 28px;
+  margin-bottom: 30px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  color: #eee;
+}
+
+    label.payment-option input[type="radio"] {
+      margin-right: 10px;
+      cursor: pointer;
+    }
+    label.payment-option img.payment-image {
+      width: 30px;
+      height: 30px;
+      border-radius: 6px;
+    }
+    .purchase-btn, .purchase-now-btn {
+      background: #ffffff;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #000;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      align-self: center;
+      user-select: none;
+    }
+    .purchase-btn:hover, .purchase-now-btn:hover {
+      background-color: #ddd;
+    }
+    .purchase-now-btn {
+      display: none;
+      margin-top: 10px;
+    }
+    .how-to {
+      margin-top: 80px;
+      max-width: 800px;
+      text-align: center;
+      line-height: 1.8;
+      font-size: 1.1rem;
+      background-color: #111;
+      padding: 30px;
+      border-radius: 16px;
+    }
+ 
+    #modal {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.7);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    #modalContent {
+      background: #222;
+      padding: 30px 25px;
+      border-radius: 14px;
+      max-width: 400px;
+      color: #fff;
+      text-align: center;
+      font-size: 1.2rem;
+      user-select: none;
+    }
+    #modalContent button {
+      margin-top: 20px;
+      background: #ffffff;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #000;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    #modalContent button:hover {
+      background: #ffffff;
+    }
+
+.main-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+background: rgba(0, 0, 0, 0.3);
+backdrop-filter: blur(20px);
+
+  -webkit-backdrop-filter: blur(12px);      
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);    
+  padding: 12px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10000;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.price span {
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+
+.navbar-center {
+  display: flex;
+  gap: 24px;
+}
+
+.navbar-center a {
+  color: #ccc;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.navbar-center a:hover {
+  color: white;
+}
+
+.navbar-right {
+  display: flex;
+  gap: 12px;
+  padding-right: 100px;   
+}
+
+.btn-login, .btn-buy {
+  padding: 6px 14px;           
+  font-size: 0.9rem;          
+  border-radius: 6px;        
+}
+
+.btn-login {
+  background: transparent;
+  color: white;
+  border: 1px solid #555;
+  text-decoration: none;
+}
+
+.btn-buy {
+  background: white;
+  color: black;
+  text-decoration: none; 
+}
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.brand-title {
+  font-size: 1.6rem;        
+  font-weight: 800;
+  color: white;
+  letter-spacing: 0.5px;
+}
+
+.btn-login:hover {
+  background: #222;
+}
+.btn-buy:hover {
+  background: #ddd;
+}
+
+
+    .how-to-toggle {
+  margin-top: 60px;
+  text-align: center;
+}
+
+#toggleHowToBtn {
+  background: linear-gradient(90deg, #ff7e5f, #feb47b);
+  border: none;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 1rem;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#toggleHowToBtn:hover {
+  background: linear-gradient(90deg, #feb47b, #ff7e5f);
+}
+.purchase-guide {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0));
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 12px;
+  padding: 24px 28px;
+  max-width: 680px;
+  width: 100%;
+  margin: 40px auto;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+  color: #eee;
+}
+.payment-modal {
+  background: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  font-family: 'Poppins', sans-serif;
+}
+
+.payment-modal-content {
+  background: #111;
+  border-radius: 12px;
+  padding: 30px 25px;
+  width: 100%;
+  max-width: 420px;
+  color: white;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.modal-header p {
+  color: #ccc;
+  font-size: 0.95rem;
+  margin-top: 6px;
+  margin-bottom: 20px;
+}
+
+.payment-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.payment-card {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  padding: 14px 18px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+ gap: 16px;
+  cursor: pointer;
+   margin-bottom: 16px;
+  transition: background 0.3s, border 0.3s;
+}
+
+.payment-card:hover {
+  background: #222;
+  border-color: #555;
+}
+
+.payment-card i {
+  font-size: 1.4rem;
+  color: #00ffd0;
+}
+
+.payment-card p {
+  margin: 2px 0 0;
+  color: #bbb;
+  font-size: 0.9rem;
+}
+
+.proceed-btn {
+  margin-top: 25px;
+  width: 100%;
+  background: white;
+  color: black;
+  border: none;
+  padding: 12px 0;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.proceed-btn:hover {
+  background: #e4e4e4;
+}
+
+
+.purchase-guide h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: white;
+}
+.payment-card.selected {
+  border-color: #00ffd0;
+  background: #222;
+}
+
+.step {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 14px;
+  font-size: 0.96rem;
+  line-height: 1.6;
+}
+
+.step-number {
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  font-weight: 600;
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+footer {
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+  color: #fff;
+  background-color: transparent;
+  font-size: 0.9rem;
+  user-select: none;
+  position: relative;
+}
+.bottom-footer-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.bottom-footer {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  padding: 10px 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  max-width: fit-content;
+}
+
+.bottom-footer a {
+  color: #fff;
+  font-size: 1.2rem;
+  transition: color 0.2s;
+}
+
+.bottom-footer a:hover {
+  color: #ff9100;
+}
+
+.animated-background {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -2;
+  overflow: hidden;
+}
+
+.animated-circle {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.4;
+  animation: move 20s infinite ease-in-out alternate;
+}
+
+.circle1 {
+  background: #00f0ff;
+  width: 400px; height: 400px;
+  top: 10%; left: 15%;
+  animation-delay: 0s;
+}
+
+.circle2 {
+  background: #ff00ff;
+  width: 500px; height: 500px;
+  top: 50%; left: 60%;
+  animation-delay: 5s;
+}
+
+.logo-icon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+
+.circle3 {
+  background: #ff8800;
+  width: 300px; height: 300px;
+  top: 80%; left: 30%;
+  animation-delay: 10s;
+}
+
+@keyframes move {
+  0%   { transform: translate(0px, 0px) scale(1); }
+  100% { transform: translate(-100px, 100px) scale(1.2); }
+}
+a {
+  color: #ff9100;
+}
+
+a:hover {
+  color: #ff9100;
+}
+
+.btn-rounded-gradient {
+  background: linear-gradient(90deg, #ff7e5f, #feb47b);
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 12px 30px;
+  border-radius: 30px;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s ease;
+  cursor: pointer;
+}
+.btn-rounded-gradient:hover {
+  background: linear-gradient(90deg, #feb47b, #ff7e5f);
+}
+.pricing-container {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 60px;
+}
+
+.pricing-card {
+  background: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0));
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 20px;
+  padding: 30px 30px;
+  width: 340px;
+  color: white;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease;
+}
+
+.pricing-card:hover {
+  transform: scale(1.02);
+}
+
+.badge {
+  background: #ff9100;
+  padding: 5px 12px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.best-value .badge {
+  background: #6f42c1;
+}
+
+.price {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.price span {
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+.features {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.features li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.features i {
+  color: #00ffcc;
+}
+
+.purchase-btn {
+  background: #fff;
+  color: #000;
+  font-weight: bold;
+  padding: 12px;
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+.purchase-btn:hover {
+  background: #eaeaea;
+}
+
+.methods p {
+  font-size: 0.9rem;
+  color: #bbb;
+  margin-bottom: 8px;
+}
+
+.tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.tags span {
+  background: rgba(255,255,255,0.08);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  color: #fff;
+}
+
+.purchase-steps {
+  margin-top: 40px;
+  font-size: 1.05rem;
+  color: #ccc;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.step {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.step-number {
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  font-weight: 600;
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  line-height: 26px;  
+  text-align: center;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+   .icon-button {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.2);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon-button:hover {
+  background-color: rgba(255,255,255,0.1);
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.menu-toggle span {
+  height: 3px;
+  width: 25px;
+  background: white;
+  border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+  .navbar-center {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.95);
+    width: 100%;
+    padding: 20px;
+    z-index: 1000;
+  }
+
+  .navbar-center.show {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .navbar-right {
+    padding-right: 0;
+  }
+}
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal-content {
+  background: #111;
+  color: #fff;
+  padding: 30px;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+}
+.close-x {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  color: #999;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  z-index: 10001;
+}
+
+.close-x:hover {
+  color: #fff;
+}
+
+.payment-options {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.payment-btn {
+  background: #222;
+  border: 1px solid #444;
+  padding: 12px;
+  color: white;
+  font-size: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: background 0.3s;
+}
+
+.payment-btn:hover {
+  background: #333;
+}
+.payment-modal-content {
+  position: relative; 
+  background: #111;
+  border-radius: 12px;
+  padding: 30px 25px;
+  width: 100%;
+  max-width: 420px;
+  color: white;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+}
+.accordion-content {
+  display: none;
+  margin-top: 8px;
+  color: #ccc;
+}
+
+.accordion-header {
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.accordion-header:hover {
+  color: #ff9100;
+}
+
+.close-btn {
+  margin-top: 25px;
+  background: #fff;
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+}
+    #blur-canvas {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+  </style>
+</head>
+<canvas id="blur-canvas"></canvas>
+<div class="animated-background">
+  <div class="animated-circle circle1"></div>
+  <div class="animated-circle circle2"></div>
+  <div class="animated-circle circle3"></div>
+</div>
+
+<body> 
+<div class="payment-modal" id="paymentModal" style="display: none;">
+
+  <div class="payment-modal-content">
+    <button class="close-x" onclick="closeModal()">
+  <i class="fas fa-times"></i>
+</button>
+
+    <div class="modal-header">
+      <h2>Choose Payment Method</h2>
+      <p>Select how you would like to pay for your plan.</p>
+    </div>
+
+ <div class="payment-card" data-url="https://xecrethubth.betashift.xyz/">
+  <i class="fas fa-credit-card"></i>
+  <div>
+    <strong>True Money Wallet</strong>
+    <p>Pay with True Money Wallet</p>
+  </div>
+</div>
+
+
+    <div class="payment-card" data-url="https://www.paypal.com/paypalme/SophaLanet">
+  <i class="fab fa-paypal"></i>
+  <div>
+    <strong>PayPal</strong>
+    <p>The safest and best payment</p>
+  </div>
+</div>
+
+
+<div class="payment-card" 
+     data-robux-monthly="https://www.roblox.com/catalog/93578935960753/Monthly"
+     data-robux-lifetime="https://www.roblox.com/catalog/77370347806343/Lifetime">
+  <i class="fas fa-gift"></i>
+  <div>
+    <strong>Robux</strong>
+    <p>1,000 For Monthly / 2,000 For Lifetime</p>
+  </div>
+</div>
+
+
+
+    <button class="proceed-btn">Proceed to Payment</button>
+  </div>
+</div>
+
+
+<div id="music-player" style="display: none;"></div>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+<nav class="main-navbar">
+<div class="navbar-left">
+
+<div class="menu-toggle" id="menuToggle">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+
+  <div class="brand-title">Xecret <span class="highlight">Hub</span></div>
+</div>
+  <div class="navbar-center">
+    <a href="https://xecrethub.com"><i class="fas fa-home"></i> Home</a>
+    <a href="https://xecrethub.com/games"><i class="fas fa-dice"></i> Games</a>
+    <a href="https://xecrethub.com/executors"><i class="fas fa-terminal"></i> Executors</a>
+    <a href="https://www.youtube.com/@XecretHub/videos" target="_blank">
+  <i class="fas fa-video"></i> Showcases
+</a>
+    <a href="https://xecrethub.com/purchase"><i class="fas fa-dollar-sign"></i> Pricing</a>
+    <a href="https://xecrethub.com/terms"><i class="fas fa-scroll"></i> Terms</a>
+    <a href="https://discord.gg/xecrethub" target="_blank"><i class="fab fa-discord"></i> Discord</a>
+  </div>
+  <div class="navbar-right">
+  
+
+
+<button id="musicToggleBtn" class="icon-button">
+  <i class="fas fa-volume-up"></i>
+</button>
+    <a href="https://xecrethub.com/purchase" class="btn-buy">Purchase Now</a>
+  </div>
+</nav>
+
+ <h1>Terms of Service</h1>
+  <p class="subtitle">Please read these Terms carefully before using the Xecret Hub Services. By using our Services, you agree to be bound by these Terms.</p>
+<div class="section">
+  <h2><i class="fas fa-user-shield"></i> Usage Policy</h2>
+
+  <div class="item">
+    <div class="item-title accordion-header">No Refunds</div>
+    <div class="accordion-content">
+      <p>All sales are final. We do not offer refunds under any circumstances.</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title accordion-header">Sharing Strictly Prohibited</div>
+    <div class="accordion-content">
+      <p>The product is licensed for use by a single user only. Sharing your access or license key with others is strictly prohibited. This includes letting friends or family use your license, posting your key in public or private forums, or using your license on multiple devices simultaneously. Violation results in immediate, permanent termination of your license with no refund.</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title accordion-header">No Tampering</div>
+    <div class="accordion-content">
+      <p>Any attempt to reverse engineer, decompile, modify, or otherwise tamper with the product is strictly prohibited. This includes efforts to bypass security mechanisms, alter the code, extract source code, or create unauthorized derivative works. Such violations may result in immediate account termination without refund.</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title accordion-header">No Loophole Exploitation</div>
+    <div class="accordion-content">
+      <p>You agree not to seek out or exploit any loopholes in these Terms of Service or the functionality of the product. This includes, but is not limited to, exploiting bugs, misusing the product beyond its intended purpose, or attempting to bypass trial limitations or license restrictions.</p>
+    </div>
+  </div>
+
+<div class="item">
+  <div class="item-title accordion-header">No Reselling</div>
+  <div class="accordion-content">
+    <p>Reselling or redistributing any part of Xecret Hub, including access keys, scripts, executables, or modifications thereof, is strictly forbidden. Any such activity will result in permanent suspension without refund.</p>
+  </div>
+</div>
+
+<div class="item">
+  <div class="item-title accordion-header">Compliance with Game Rules</div>
+  <div class="accordion-content">
+    <p>You are solely responsible for ensuring that your use of this product complies with the terms of service of the games you use it with. We are not responsible for any bans, penalties, or account losses.</p>
+  </div>
+</div>
+
+
+
+</div>
+<div class="section">
+  <h2><i class="fas fa-wallet"></i> Payment Terms</h2>
+
+  <div class="item">
+    <div class="item-title accordion-header">License Validity</div>
+    <div class="accordion-content">
+      <p>All purchases grant the user access only to the plan selected during payment. Changing or upgrading plans later requires a new transaction unless otherwise specified in promotions.</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title accordion-header">Robux Policy</div>
+    <div class="accordion-content">
+      <p>Robux payments must be made via official links provided by Xecret Hub. We are not responsible for payments sent to unauthorized sources. No reselling or transferring of Robux-purchased access is allowed.</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title accordion-header">Chargebacks</div>
+    <div class="accordion-content">
+      <p>Attempting to reverse a payment (chargeback) will result in a permanent ban from our services and blacklisting from any future purchases or support.</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title accordion-header">Currency & Conversion Fees</div>
+    <div class="accordion-content">
+      <p>All payments are processed in USD. Any fees or conversion costs from other currencies are the buyer's responsibility.</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title accordion-header">No Installment Plans</div>
+    <div class="accordion-content">
+      <p>We do not offer installment-based payments or delayed access. All access is granted only after full payment is confirmed.</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title accordion-header">Coupon Abuse</div>
+    <div class="accordion-content">
+      <p>Discount codes or promotional offers must be used as intended. Exploiting bugs or misusing coupons may result in revoked access without refund.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h2><i class="fas fa-users"></i> Community Guidelines</h2>
+
+  <div class="item">
+    <div class="item-title accordion-header">Respectful Behavior</div>
+    <div class="accordion-content">
+      <p>Respect staff and other users at all times. Discrimination, hate speech, harassment, or bullying in any form will result in disciplinary action, including permanent bans.</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title accordion-header">Support Etiquette</div>
+    <div class="accordion-content">
+      <p>Use support channels responsibly. Spamming, excessive pinging, or submitting false/duplicate tickets will result in a timeout or removal of support privileges.</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title accordion-header">No Advertising</div>
+    <div class="accordion-content">
+      <p>Advertising other scripts, services, or Discord servers is not allowed without permission. This includes both public and private channels.</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title accordion-header">English or Thai Only</div>
+    <div class="accordion-content">
+      <p>Please use English or Thai in support and public channels to ensure clear communication for all staff and members.</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title accordion-header">User Impersonation</div>
+    <div class="accordion-content">
+      <p>Do not impersonate Xecret Hub staff, developers, or partners. Violators will be immediately removed from the community.</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title accordion-header">Channel Guidelines</div>
+    <div class="accordion-content">
+      <p>Each channel has a specific purpose. Posting unrelated content or disrupting discussions will result in warnings or mute penalties.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h2><i class="fas fa-balance-scale"></i> Legal Compliance</h2>
+
+  <div class="item">
+    <div class="item-title accordion-header">Game Terms</div>
+    <div class="accordion-content">
+      <p>You are solely responsible for ensuring that your use of Xecret Hub does not violate the terms and conditions of the games you engage with. We do not encourage or condone breaches of any game’s policies.</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title accordion-header">Ban Disclaimer</div>
+    <div class="accordion-content">
+      <p>We are not liable for any game bans, suspensions, or penalties that may occur as a result of using our services. Use at your own risk.</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title accordion-header">Intellectual Property</div>
+    <div class="accordion-content">
+      <p>All third-party trademarks (e.g. game names, logos) are the property of their respective owners. Xecret Hub is not affiliated with or endorsed by any game developer or publisher.</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title accordion-header">Prohibited Use Cases</div>
+    <div class="accordion-content">
+      <p>You may not use Xecret Hub for malicious activities such as cheating in competitive environments with real-money rewards, harming other players, or violating national/commercial laws.</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title accordion-header">Jurisdiction Notice</div>
+    <div class="accordion-content">
+      <p>These terms are governed under international digital goods and services standards. Your location may have additional restrictions — you are responsible for compliance.</p>
+    </div>
+  </div>
+</div>
+
+
+ <div class="acceptance">
+    <h2><i class="fas fa-key"style="color:rgb(255, 255, 255)"></i> Security Notice Key</h2>
+    <p>Please avoid sharing your key with anyone, as it could lead to potential security risks.</p>
+    <p style="margin-top:10px; color: #05ff05;">Last updated: June 26, 2025</p>
+  </div>
+
+
+
+  <div class="acceptance">
+    <h2><i class="fas fa-check-circle"style="color:rgb(255, 255, 255)"></i> Acceptance of Terms</h2>
+    <p>Your use of Xecret Hub indicates that you have read and accepted these Terms of Service. If you do not agree, please do not continue to use the service.</p>
+    <p style="margin-top:10px; color: #05ff05;">Last updated: June 26, 2025</p>
+  </div>
+
+<div id="modal">
+  <div id="modalContent">
+    <div id="modalMessage"></div>
+    <button onclick="closeModal()">OK</button>
+    
+  </div>
+</div>
+
+
+<script>
+  
+const blurCanvas = document.getElementById('blur-canvas');
+const ctx = blurCanvas.getContext('2d');
+
+function resizeCanvas() {
+  blurCanvas.width = window.innerWidth;
+  blurCanvas.height = window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+let mouseX = -1000, mouseY = -1000;
+
+document.addEventListener('mousemove', (e) => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+});
+
+
+function drawBlur() {
+  ctx.clearRect(0, 0, blurCanvas.width, blurCanvas.height);
+
+  const gradient = ctx.createRadialGradient(mouseX, mouseY, 0, mouseX, mouseY, 300); 
+  gradient.addColorStop(0, 'rgba(255, 255, 255, 0.25)');
+  gradient.addColorStop(0.4, 'rgba(255, 255, 255, 0.1)');
+  gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
+
+
+  ctx.fillStyle = gradient;
+  ctx.fillRect(mouseX - 300, mouseY - 300, 600, 600); 
+
+  requestAnimationFrame(drawBlur);
+}
+drawBlur();
+</script>
+<script src="https://www.youtube.com/iframe_api"></script>
+<script>
+  let player;
+  let unmuted = false;
+
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player('music-player', {
+    height: '0',
+    width: '0',
+    videoId: 'ZGS8WAxwh98',
+    playerVars: {
+      autoplay: 0,    
+      loop: 1,
+      playlist: 'ZGS8WAxwh98',
+      controls: 0,
+      mute: 1
+    },
+    events: {
+      onReady: () => {
+      }
+    }
+  });
+}
+
+
+  document.addEventListener('click', () => {
+    if (player && !unmuted) {
+      player.unMute();
+      unmuted = true;
+    }
+  }, { once: true });
+</script>
+<script>
+  const clickSound = new Audio('https://www.fesliyanstudios.com/play-mp3/387');
+  clickSound.volume = 0.5;
+  document.addEventListener('mousedown', (e) => {
+    if (e.button === 0) {
+      clickSound.currentTime = 0;
+      clickSound.play().catch(() => {});
+    }
+  });
+</script>
+<script>
+  const toggleBtn = document.getElementById('toggleHowToBtn');
+  const howToBox = document.getElementById('howToBox');
+
+  toggleBtn.addEventListener('click', () => {
+    const isVisible = howToBox.style.display === 'block';
+    howToBox.style.display = isVisible ? 'none' : 'block';
+    toggleBtn.textContent = isVisible ? 'How to Purchase' : 'Close';
+  });
+</script>
+
+<script>
+const musicBtn = document.getElementById("musicToggleBtn");
+let isMuted = true;
+let hasStarted = false;
+
+function updateMusicIcon() {
+  musicBtn.innerHTML = isMuted
+    ? '<i class="fas fa-volume-mute"></i>'
+    : '<i class="fas fa-volume-up"></i>';
+}
+
+musicBtn.addEventListener("click", () => {
+  if (player) {
+    if (!hasStarted) {
+      player.unMute();
+      player.playVideo(); 
+      hasStarted = true;
+      isMuted = false;
+    } else {
+      if (isMuted) {
+        player.unMute();
+        player.playVideo();
+      } else {
+        player.pauseVideo(); 
+      }
+      isMuted = !isMuted;
+    }
+    updateMusicIcon();
+  }
+});
+
+  updateMusicIcon();
+</script>
+
+<script>
+  const menuToggle = document.getElementById('menuToggle');
+  const navbarCenter = document.querySelector('.navbar-center');
+
+  menuToggle.addEventListener('click', () => {
+    navbarCenter.classList.toggle('show');
+  });
+</script>
+<script>
+  function openPaymentModal() {
+    document.getElementById('paymentModal').style.display = 'flex';
+  }
+
+  function closeModal() {
+    document.getElementById('paymentModal').style.display = 'none';
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.payment-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const url = btn.getAttribute('data-url');
+        if (url) window.open(url, '_blank');
+      });
+    });
+  });
+</script>
+<script>
+  let selectedPlan = null; 
+  let selectedCard = null;
+
+  function openPaymentModal(plan) {
+    selectedPlan = plan;
+    selectedCard = null;
+    document.getElementById('paymentModal').style.display = 'flex';
+
+    document.querySelectorAll('.payment-card').forEach(c => c.classList.remove('selected'));
+  }
+
+  function closeModal() {
+    document.getElementById('paymentModal').style.display = 'none';
+  }
+
+  document.querySelectorAll('.payment-card').forEach(card => {
+    card.addEventListener('click', () => {
+      document.querySelectorAll('.payment-card').forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+      selectedCard = card;
+    });
+  });
+
+  document.querySelector('.proceed-btn').addEventListener('click', () => {
+    if (!selectedCard) {
+      alert('Please select a payment method first!');
+      return;
+    }
+
+    const isRobux = selectedCard.querySelector('strong')?.textContent?.includes('Robux');
+ if (isRobux) {
+const robuxUrl = selectedCard.getAttribute(
+  selectedPlan === 'monthly' ? 'data-robux-monthly' : 'data-robux-lifetime'
+);
+
+  if (robuxUrl) {
+    window.open(robuxUrl, '_blank');
+  } else {
+    alert('No Robux URL found for this plan.');
+  }
+  return;
+}
+
+    const url = selectedCard.getAttribute('data-url');
+    if (url) {
+      window.open(url, '_blank');
+    } else {
+      alert('No payment URL found for this method.');
+    }
+  });
+</script>
+<script>
+document.querySelectorAll('.accordion-header').forEach(header => {
+  header.addEventListener('click', () => {
+    const content = header.nextElementSibling;
+
+    if (content.style.display === 'block') {
+      content.style.display = 'none';
+    } else {
+      content.style.display = 'block';
+    }
+  });
+});
+</script>
+<footer>
+  © 2025 Xecret Hub. All rights reserved.
+  <div class="bottom-footer-wrapper"> 
+  <div class="bottom-footer">
+  <a href="https://xecrethub.com"><i class="fas fa-home"></i></a>
+  <a href="https://xecrethub.com/games"><i class="fas fa-dice"></i></a>
+  <a href="https://xecrethub.com/executors"><i class="fas fa-terminal"></i></a>
+  <a href="https://www.youtube.com/@XecretHub/videos" target="_blank"><i class="fas fa-video"></i></a>
+  <a href="https://xecrethub.com/purchase"><i class="fas fa-dollar-sign"></i></a>
+  <a href="https://xecrethub.com/terms"><i class="fas fa-scroll"></i></a>
+  <a href="https://discord.gg/xecrethub" target="_blank"><i class="fab fa-discord"></i></a>
+</div>
+  </div>
+</footer>
+
+</body>
+</html>
