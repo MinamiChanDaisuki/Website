@@ -9,17 +9,17 @@ if not script_key then
     return;
 end;
 
-local handlers = {
+local handlers_status = {
     KEY_VALID = function()
         pcall(api.purge_cache);
         api.load_script();
-    end,
-    KEY_HWID_LOCKED = function() player:Kick("[WARNING] HWID Locked - Reset your HWID") end,
-    KEY_EXPIRED = function() player:Kick("[ERROR] Key Expired - Subscription ended") end,
-    KEY_BANNED = function() player:Kick("[ERROR] Key Blacklisted - Access revoked") end,
-    KEY_INCORRECT = function() player:Kick("[ERROR] Invalid Key - Your Cooked") end
+    end;
+    KEY_HWID_LOCKED = function() player:Kick("[WARNING] HWID Locked - Reset your HWID") end;
+    KEY_EXPIRED = function() player:Kick("[ERROR] Key Expired - Subscription ended") end;
+    KEY_BANNED = function() player:Kick("[ERROR] Key Blacklisted - Access revoked") end;
+    KEY_INCORRECT = function() player:Kick("[ERROR] Invalid Key - Your Cooked") end;
 };
 
-(handlers[status_api.code] or function()
+(handlers_status[status_api.code] or function()
     player:Kick("[ERROR] Authentication Error -", status_api.message);
 end)();
